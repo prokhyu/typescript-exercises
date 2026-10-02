@@ -19,15 +19,16 @@ const values: Value[] = [
   100,
 ];
 
-const types: Record<string, number> = {
-  number: 0,
-  string: 0,
-  boolean: 0,
-};
+const types: Record<string, number> = {};
 
 for (const value of values) {
   const type = typeof value;
-  types[type]++;
+
+  if (types[type] === undefined) {
+    types[type] = 0;
+  }
+
+  types[type] += 1;
 }
 
 console.dir(types);
